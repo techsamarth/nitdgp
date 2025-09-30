@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal | NIT Durgapur</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --nit-blue: #0c4da2;
+      --nit-light-blue: #f0f6ff;
+      --nit-orange: #ff6b00;
+      --nit-dark: #1b1b1b;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background-color: var(--nit-blue);
+      color: white;
+      padding: 6px 0;
+      font-size: 14px;
+    }
+    .top-bar a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .top-bar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header */
+    .header {
+      background-color: white;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      height: 75px;
+      margin-right: 15px;
+    }
+    .institute-name {
+      color: var(--nit-blue);
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+    .institute-name span {
+      font-size: 15px;
+      font-weight: 400;
+      display: block;
+    }
+    .student-info {
+      text-align: right;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--nit-orange);
+    }
+
+    /* Circulars */
+    .circulars {
+      background: var(--nit-light-blue);
+      padding: 15px 20px;
+      margin-top: 10px;
+      border-left: 5px solid var(--nit-blue);
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+    .circulars h5 {
+      margin-bottom: 10px;
+      color: var(--nit-blue);
+    }
+    .circulars ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .circulars li {
+      padding: 6px 0;
+      font-size: 15px;
+      transition: transform 0.2s;
+    }
+    .circulars li:hover {
+      transform: translateX(5px);
+      color: var(--nit-orange);
+    }
+
+    /* Dashboard */
+    .dashboard {
+      margin: 40px 0;
+      animation: slideUp 1s ease-in-out;
+    }
+    .card-option {
+      border: none;
+      border-radius: 12px;
+      transition: 0.3s;
+      background: var(--nit-light-blue);
+      color: var(--nit-dark);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    .card-option:hover {
+      transform: translateY(-8px) scale(1.03);
+      background: #ffffff;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .card-option i {
+      font-size: 35px;
+      color: var(--nit-blue);
+      margin-bottom: 12px;
+      transition: transform 0.4s ease;
+    }
+    .card-option:hover i {
+      transform: rotate(10deg) scale(1.2);
+      color: var(--nit-orange);
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--nit-blue);
+      color: white;
+      padding: 15px 0;
+      margin-top: 40px;
+      text-align: center;
+    }
+    footer a {
+      color: #ffdcb5;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <a href="https://nitdgp.duckdns.org"><i class="fas fa-home"></i> Home</a>
+        <a href="http://erp.nitdgp.ac.in/" target="_blank"><i class="fas fa-chart-line"></i> ERP</a>
+        <a href="http://14.139.221.18:9001/default.aspx?ReturnUrl=/" target="_blank"><i class="fas fa-tv"></i> Chanakya</a>
+        <a href="https://nitdgp.ac.in/p/nirf-1"><i class="fas fa-file-alt"></i> NIRF</a>
+      </div>
+      <div>
+        <a href="https://mail.google.com/a/nitdgp.ac.in" target="_blank"><i class="fas fa-envelope"></i> Mail</a>
+        <a href="https://nitdgp.ac.in/p/contact"><i class="fas fa-phone"></i> Contacts</a>
+        <a href="https://nitdgp.ac.in/hindi" target="_blank"><i class="fas fa-globe"></i> हिंदी</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container logo-container">
+      <div class="d-flex align-items-center">
+        <img src="https://nitdgp.ac.in/front/assets/images/nitdgp_logo.png" alt="NIT Durgapur Logo" class="logo">
+        <div class="institute-name">
+          National Institute of Technology Durgapur
+          <span>An Institute of National Importance under MoE, Government of India</span>
+        </div>
+      </div>
+      <div class="student-info">
+        Welcome, <span>{{ name }}</span>
+      </div>
+    </div>
+  </header>
+
+<!-- Circulars Section -->
+<div class="container mt-5">
+  <h3 class="mb-4 text-primary">📢 Latest Circulars</h3>
+  <ul class="list-group shadow-sm">
+
+<ul class="list-group shadow-sm">
+
+  <!-- Circular 1 -->
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <span>📝 Classes for first year will begin from
+      <strong>28 August 2025, 9:00 AM</strong> in the
+      <strong>New Academic Building</strong>.
+    </span>
+  </li>
+
+  <!-- Circular 2 (Orientation Photos) -->
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <span>✨ <strong><blink>Download your Photos of Orientation Program</blink></strong></span>
+    <a href="https://drive.google.com/drive/folders/1JJt0gLsRYWR2tAsqeEh9CE0BLQRoC6G7" 
+       class="btn btn-sm btn-primary" target="_blank">Download</a>
+  </li>
+
+  <!-- Conditional Circular for "E" Roll Numbers -->
+  {% if join_math_group %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <span>📘 Join this WhatsApp group for <strong>For Students of E-X</strong> discussions.</span>
+    <a href="https://chat.whatsapp.com/E2Ofh0ggVolBuqTah6maiZ?mode=ems_wa_c" class="btn btn-sm btn-success" target="_blank">Join Group</a>
+  </li>
+  {% endif %}
+  
+   {% if join_math_group %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <span>📘 Join this WhatsApp group for <strong>For CSC01 E Section.</strong> discussions.</span>
+    <a href="https://chat.whatsapp.com/CwINmWADqVVEffkRK8GbDX?mode=ems_wa_c" class="btn btn-sm btn-success" target="_blank">Join Group</a>
+  </li>
+  {% endif %}
+  
+   {% if join_math_group %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <span>📘 Join this WhatsApp group for <strong>For Students of E-Y</strong> discussions.</span>
+    <a href="https://chat.whatsapp.com/Lj0whVvF2q99mkiEeT3UNM?mode=ems_wa_c" class="btn btn-sm btn-success" target="_blank">Join Group</a>
+  </li>
+  {% endif %}
+
+</ul>
+
+
+  <!-- Dashboard -->
+ <div class="container dashboard">
+    <div class="row g-4">
+      <div class="col-md-3 col-sm-6">
+        <a href="classmates" class="text-decoration-none">
+          <div class="card p-4 text-center card-option">
+            <i class="fas fa-users"></i>
+            <div class="card-title">Know Your Classmates</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <a href="techparent" class="text-decoration-none">
+          <div class="card p-4 text-center card-option">
+            <i class="fas fa-user-graduate"></i>
+            <div class="card-title">Know Your Tech Parent</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3 col-sm-6">
+  <a href="{{ url_for('static', filename='class_schedule.pdf') }}" class="text-decoration-none" target="_blank">
+    <div class="card p-4 text-center card-option">
+      <i class="fas fa-calendar-alt"></i>
+      <div class="card-title">Classes Schedule</div>
+    </div>
+  </a>
+     </div>
+
+<div class="col-md-3 col-sm-6">
+  <a href="https://nitdgp.ac.in/p/clubs-1" class="text-decoration-none" target="_blank">
+    <div class="card p-4 text-center card-option">
+      <i class="fas fa-theater-masks"></i>
+      <div class="card-title">Clubs & Societies</div>
+    </div>
+  </a>
+</div>
+<div class="col-md-3 col-sm-6">
+  <a href="https://nitdgp.ac.in/uploads/97c09d4522e84581a40b55ca77065598.pdf" class="text-decoration-none" target="_blank">
+    <div class="card p-4 text-center card-option">
+      <i class="fas fa-book-open"></i>
+      <div class="card-title">Mid Term Syllabus</div>
+    </div>
+  </a>
+</div>
+<div class="col-md-3 col-sm-6">
+  <a href="https://nitdgp.ac.in/uploads/userfiles/files/Odd%20Sem%20Mid-term%20Question%20Paper%202023-24.zip" class="text-decoration-none" target="_blank">
+    <div class="card p-4 text-center card-option">
+      <i class="fas fa-file-pdf"></i>
+      <div class="card-title">Mid Term PYQs</div>
+    </div>
+  </a>
+</div>
+     <div class="col-md-3 col-sm-6">
+  <a href="https://nitdgp.ac.in/p/heads-1" class="text-decoration-none" target="_blank">
+    <div class="card p-4 text-center card-option">
+      <i class="fas fa-chalkboard-teacher"></i>
+      <div class="card-title">Know Your HODs</div>
+    </div>
+  </a>
+</div>
+ <div class="col-md-3 col-sm-6">
+        <a href="results" class="text-decoration-none">
+          <div class="card p-4 text-center card-option">
+            <i class="fas fa-award"></i>
+            <div class="card-title">Semester Results</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <a href="attendance" class="text-decoration-none">
+          <div class="card p-4 text-center card-option">
+            <i class="fas fa-clipboard-check"></i>
+            <div class="card-title">Attendance</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer>
+    <div>© 2025 National Institute of Technology Durgapur. All Rights Reserved. | <a href="https://nitdgp.ac.in/">NITDGP</a></div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome | NIT Durgapur</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --nit-blue: #0c4da2;
+      --nit-light-blue: #e8f1ff;
+      --nit-orange: #ff6b00;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Welcome animation */
+    .welcome-container {
+      text-align: center;
+      margin-top: 50px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .welcome-text {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--nit-blue);
+      border-right: 3px solid var(--nit-orange);
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 3s steps(40, end) forwards, blink 0.7s infinite;
+      display: inline-block;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .form-card {
+      margin: 40px auto;
+      max-width: 600px;
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      margin-top: 50px;
+      background-color: var(--nit-blue);
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer h5 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+    footer ul li {
+      margin-bottom: 8px;
+    }
+    footer ul li a {
+      color: #ddd;
+      text-decoration: none;
+    }
+    footer ul li a:hover {
+      color: #fff;
+    }
+    .copyright {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header shadow-sm bg-white">
+    <div class="container py-3 d-flex align-items-center">
+      <img src="https://nitdgp.ac.in/front/assets/images/nitdgp_logo.png" alt="Logo" class="me-3" style="height:70px;">
+      <div>
+        <h3 class="m-0" style="color:var(--nit-blue);">National Institute of Technology Durgapur</h3>
+        <small class="text-muted">An Institute of National Importance under MHRD, Government of India</small>
+      </div>
+    </div>
+  </header>
+
+  <!-- Welcome Animation -->
+  <div class="welcome-container">
+    <div class="welcome-text">Welcome {{name}} ({{rollno}})</div>
+  </div>
+
+  <!-- Room Form -->
+  <div class="form-card">
+    <h4 class="mb-4 text-center text-primary">Submit Your Hostel Details</h4>
+<form method="POST" action="{{ url_for('submit_room') }}">
+  <!-- Rollno (readonly, but with name so it's sent) -->
+  <div class="mb-3">
+    <label class="form-label">Roll Number</label>
+    <input type="text" name="rollno" class="form-control" value="{{rollno}}" readonly>
+  </div>
+
+  <!-- Name (readonly, but with name so it's sent) -->
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" value="{{name}}" readonly>
+  </div>
+
+  <!-- Hidden subject and student_id -->
+  <input type="hidden" name="subject" value="{{subject}}">
+  <input type="hidden" name="student_id" value="{{student_id}}">
+
+  <!-- Hall -->
+  <div class="mb-3">
+    <label class="form-label">Select Hall</label>
+    <select name="hall" class="form-select" required>
+      <option value="">-- Choose Hall --</option>
+      <option value="Hall 10">Hall 10</option>
+      <option value="Hall 11">Hall 11</option>
+      <option value="Hall 12">Hall 12</option>
+    </select>
+  </div>
+
+  <!-- Room -->
+  <div class="mb-3">
+    <label class="form-label">Room Number</label>
+    <input type="text" name="room" class="form-control" placeholder="Enter your room no." required>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary px-4">Submit</button>
+  </div>
+</form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="https://www.education.gov.in/hi" target="_blank">Ministry of Education</a></li>
+            <li><a href="https://placement.nitdgp.ac.in/" target="_blank">Training and Placement Cell</a></li>
+            <li><a href="https://nitdgp.ac.in/uploads/Academic_Calendar_2025-26.pdf" target="_blank">Academic Calendar</a></li>
+            <li><a href="https://nitdgp.ac.in/p/tendersnitd">Tenders</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="https://nitdgp.ac.in/p/noticesnitd">Notices</a></li>
+            <li><a href="https://nitdgp.ac.in/p/downloads">Downloads</a></li>
+            <li><a href="https://nitdgp.ac.in/p/careers">Careers</a></li>
+            <li><a href="https://nitdgp.ac.in/p/holidays">Holidays</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Academics</h5>
+          <ul>
+            <li><a href="https://nitdgp.ac.in/p/nirf">NIRF</a></li>
+            <li><a href="https://nitdgp.ac.in/p/nad">NAD</a></li>
+            <li><a href="https://gate2025.iitr.ac.in/" target="_blank">GATE 2025</a></li>
+            <li><a href="https://jam2025.iitd.ac.in/" target="_blank">JAM 2025</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Contact</h5>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Mahatma Gandhi Ave, Durgapur, WB 713209</li>
+            <li><i class="fas fa-phone"></i> +91 343 254 5678</li>
+            <li><i class="fas fa-envelope"></i> info@nitdgp.ac.in</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright text-center">
+        © 2025 National Institute of Technology Durgapur. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

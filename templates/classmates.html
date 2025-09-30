@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classmates | NIT Durgapur</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .header {
+      background-color: #0c4da2;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .header img {
+      height: 70px;
+      margin-right: 15px;
+    }
+    .header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      font-weight: 600;
+    }
+    .sub-header {
+      background-color: #e9ecef;
+      padding: 8px;
+      text-align: center;
+      font-size: 1rem;
+      color: #333;
+    }
+    .table-container {
+      margin-top: 30px;
+    }
+    .table thead {
+      background-color: #0c4da2;
+      color: white;
+    }
+    .table tbody tr:hover {
+      background-color: #f1f6ff;
+    }
+    h3 {
+      color: #0c4da2;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .footer-note {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 1rem;
+      color: #444;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Header -->
+  <div class="header d-flex justify-content-center align-items-center">
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/NIT_Durgapur_Logo.png" alt="NIT Durgapur Logo">
+    <h1>National Institute of Technology, Durgapur</h1>
+  </div>
+
+  <!-- Sub Header -->
+  <div class="sub-header">
+    B.Tech First Year · Batch 2025-2029
+  </div>
+
+  <!-- Classmates Table -->
+  <div class="container table-container">
+    <h3>Your Classmates</h3>
+    <table class="table table-striped table-bordered shadow-sm">
+      <thead>
+        <tr>
+          <th>Roll No</th>
+          <th>Subject</th>
+          <th>ID</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in classmates %}
+        <tr>
+          <td>{{ row['Rollno'] }}</td>
+          <td>{{ row['Subject'] }}</td>
+          <td>{{ row['ID'] }}</td>
+          <td>{{ row['Name'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer Note -->
+  <div class="footer-note">
+    📧 Soon you will receive your official <strong>NIT Durgapur college email address</strong>.
+  </div>
+
+</body>
+</html>

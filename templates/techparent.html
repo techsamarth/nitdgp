@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Parent | NIT Durgapur</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --nit-blue: #0c4da2;
+      --nit-orange: #ff6b00;
+      --nit-light: #f8f9fa;
+    }
+    body {
+      background-color: var(--nit-light);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    header {
+      background-color: var(--nit-blue);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header h2 {
+      margin: 0;
+      font-size: 26px;
+    }
+    footer {
+      background-color: var(--nit-blue);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .card {
+      margin-top: 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card-header {
+      background-color: var(--nit-orange);
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .card-body p {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2><i class="fas fa-user-graduate"></i> Tech Parent Information</h2>
+  </header>
+
+  <div class="container">
+    {% if parent %}
+    <div class="card">
+      <div class="card-header">
+        Your Tech Parent
+      </div>
+      <div class="card-body">
+        <p><strong>Roll No:</strong> {{ parent['Roll No.'] }}</p>
+        <p><strong>Name:</strong> {{ parent['Student Name'] }}</p>
+        <p><strong>Stream:</strong> {{ parent['Stream'] }}</p>
+        <p><strong>Phone:</strong> {{ parent['Phone no.'] }}</p>
+      </div>
+    </div>
+    {% else %}
+    <div class="alert alert-warning mt-4">
+      <i class="fas fa-exclamation-triangle"></i> Sorry, no Tech Parent found for your roll number.
+    </div>
+    {% endif %}
+  </div>
+
+  <footer>
+    National Institute of Technology Durgapur © 2025
+  </footer>
+
+</body>
+</html>
